@@ -1,4 +1,5 @@
-FROM nvidia/cuda:7.5-cudnn5-devel
+FROM nvidia/cuda:8.0-cudnn5-devel
+
 
 MAINTAINER Craig Citro <craigcitro@google.com>
 
@@ -80,10 +81,12 @@ RUN mkdir /bazel && \
 
 # Download and build TensorFlow.
 
-RUN git clone -b r0.10 --recursive --recurse-submodules https://github.com/tensorflow/tensorflow.git && \
+RUN git clone --recursive https://github.com/tensorflow/tensorflow.git && \
     cd tensorflow && \
-    git checkout r0.10
+    git checkout r0.9
 WORKDIR /tensorflow
+
+RUN git checkout master -- tensorflow/stream_executor/cuda/cuda_blas.cc
 
 # Configure the build for our CUDA configuration.
 ENV CUDA_TOOLKIT_PATH /usr/local/cuda
