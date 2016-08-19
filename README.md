@@ -68,8 +68,13 @@ Issues / Troubleshooting
 #### 3. NVIDIA driver 구버전 설치 시 X Window 오류
    NVIDIA driver의 버전이 낮을 경우 설치 시 X Window 오류가 발생한다. 주로 CUDA 8.0 Toolkit을 직접 설치할 때 발생하는데, CUDA 8.0 Toolkit 내부에 포함된 NVIDIA driver-361이 자동으로 설치되면서 생기는 문제이다. NVIDIA driver-361은 Pascal architecture를 지원하지 않는다. 따라서 NVIDIA driver가 자동으로 설치되는 deb 패키지가 아닌 runfile을 사용해 NVIDIA driver 설치 옵션을 끈 채로 설치를 진행하고 별도로 최신버전의 NVIDIA driver를 설치하여 해결한다. NVIDIA Docker를 이용할 경우 별도로 CUDA 8.0 Toolkit을 설치할 필요가 없으므로 문제가 되지 않는다.
 
-   
 
+
+License
+-------------
+This software is licensed under the Apache 2 license
+
+Copyright (C) by ESTsoft Corp. http://est.ai
 
 
   [1]: http://stackoverflow.com/questions/38036837/extremly-low-accuracy-in-deep-mnist-for-experts-using-pascal-gpu
